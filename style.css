@@ -14,7 +14,8 @@ body {
     font-family: 'Poppins', 'Segoe UI', sans-serif;
     background: radial-gradient(circle at top right, #f1f5f9, #f8fafc);
     color: var(--text-main);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     min-height: 100vh;
 }
 
@@ -28,13 +29,14 @@ body {
 
 /* Layout */
 .container {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 40px 20px;
     box-sizing: border-box;
+    text-align: center;
 }
 
 h1 {
@@ -51,7 +53,7 @@ h1 {
 .subtitle {
     font-size: 18px;
     color: var(--text-muted);
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     font-weight: 400;
     max-width: 600px;
     text-align: center;
@@ -63,9 +65,10 @@ h1 {
     display: flex;
     gap: 40px;
     align-items: center;
-    margin: 40px 0;
+    margin: 20px 0 40px 0;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 
 /* Glass boxes */
@@ -77,7 +80,9 @@ h1 {
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 30px -5px rgba(0, 0, 0, 0.08);
-    min-width: 340px;
+    min-width: 320px;
+    flex: 1;
+    max-width: 400px;
     text-align: center;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 32px;
@@ -136,6 +141,8 @@ h1 {
     display: flex;
     gap: 16px;
     margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 button {
@@ -178,11 +185,63 @@ button:active {
 }
 
 .footer {
-    position: absolute;
-    bottom: 30px;
+    margin-top: 40px;
     color: var(--text-muted);
     font-size: 14px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     font-weight: 600;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 42px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .names {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .box {
+        min-width: 280px;
+        padding: 30px 20px;
+        font-size: 24px;
+        width: 100%;
+    }
+
+    .vs {
+        font-size: 36px;
+    }
+
+    button {
+        padding: 14px 28px;
+        font-size: 16px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .controls {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .footer {
+        position: static;
+        margin-top: 30px;
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 32px;
+    }
 }
